@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABC Training Institute</title>
+</head>
+<body bgcolor="#f2f2f2">
+
+  <!-- Navigation Bar -->
+  <table bgcolor="#333" width="100%" cellpadding="10">
+    <tr align="center">
+      <td><a href="#home" style="color:white; text-decoration:none;">Home</a></td>
+      <td><a href="#courses" style="color:white; text-decoration:none;">Courses</a></td>
+      <td><a href="#schedule" style="color:white; text-decoration:none;">Schedule</a></td>
+      <td><a href="#register" style="color:white; text-decoration:none;">Register</a></td>
+    </tr>
+  </table>
+
+  <!-- Home Section -->
+  <table width="100%" cellpadding="20">
+    <tr>
+      <td width="50%" valign="top" id="home">
+        <h1>ABC Training Institute</h1>
+        <p>Welcome to ABC Training Institute<br>
+           Empowering Your Future with Quality Education.</p>
+        <img src="institute.jpg" alt="Institute Building" width="300"><br><br>
+        <video width="300" controls>
+          <source src="learn-to-code.mp4" type="video/mp4">
+        </video>
+      </td>
+      <td width="50%" valign="top" id="courses">
+        <h2>Our Courses</h2>
+        <h3>Web Development</h3>
+        <ul>
+          <li>HTML & CSS</li>
+          <li>JavaScript</li>
+          <li>React JS</li>
+        </ul>
+        <h3>Programming Languages</h3>
+        <ol>
+          <li>Python</li>
+          <li>Java</li>
+          <li>C++</li>
+        </ol>
+        <img src="laptop-code.jpg" alt="Laptop with Code" width="250">
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" valign="top" id="schedule">
+        <h2>Course Schedule</h2>
+        <table border="1" cellpadding="8" bgcolor="#fff">
+          <tr bgcolor="#99ccff">
+            <th>Course</th>
+            <th>Trainer</th>
+            <th>Duration</th>
+            <th>Mode</th>
+          </tr>
+          <tr>
+            <td>HTML & CSS</td>
+            <td>Ashoka</td>
+            <td>2 Weeks</td>
+            <td>Online</td>
+          </tr>
+          <tr>
+            <td>Java</td>
+            <td>Ms. Rahul</td>
+            <td>4 Weeks</td>
+            <td>Offline</td>
+          </tr>
+          <tr>
+            <td>React JS</td>
+            <td>Mr. Anita</td>
+            <td>3 Weeks</td>
+            <td>Online</td>
+          </tr>
+        </table>
+      </td>
+      <td width="50%" valign="top" id="register">
+        <h2>Student Registration</h2>
+        <form>
+          Name: <input type="text" name="name"><br><br>
+          Email: <input type="email" name="email"><br><br>
+          Phone: <input type="tel" name="phone"><br><br>
+          Select Course:
+          <select name="course">
+            <option>HTML & CSS</option>
+            <option>JavaScript</option>
+            <option>React JS</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>C++</option>
+          </select><br><br>
+          Gender:
+          <input type="radio" name="gender" value="Male"> Male
+          <input type="radio" name="gender" value="Female"> Female<br><br>
+          Message:<br>
+          <textarea name="message" rows="4" cols="40"></textarea><br><br>
+          <input type="submit" value="Register Now" style="background-color:red; color:white;">
+        </form>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

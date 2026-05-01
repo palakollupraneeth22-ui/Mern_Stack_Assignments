@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Result Table</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: center; }
+    .green { background-color: green; }
+    .yellow { background-color: yellow; }
+    .orange { background-color: orange; }
+    .red { background-color: red; }
+  </style>
+</head>
+<body>
+  <h2>Interactive Student Result Table</h2>
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>CNN</th>
+        <th>CPP</th>
+        <th>ADE</th>
+        <th>DSA</th>
+        <th>Total</th>
+        <th>Percentage</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    let students = [
+      {name:'Ravi', rollNo:'1', marks:{CNN:40, CPP:35, ADE:37, DSA:42}},
+      {name:'Rajendra', rollNo:'2', marks:{CNN:88, CPP:92, ADE:85, DSA:70}},
+      {name:'Arjun', rollNo:'3', marks:{CNN:45, CPP:55, ADE:60, DSA:60}},
+      {name:'prasad',rollNo:'4', marks:{CNN:75, CPP:82, ADE:70, DSA:88}},
+      {name:'Rahul', rollNo:'5', marks:{CNN:62, CPP:65, ADE:75, DSA:70}},
+      {name:'Akash', rollNo:'6', marks:{CNN:95, CPP:89, ADE:92, DSA:98}},
+      {name:'Vikas', rollNo:'7', marks:{CNN:30, CPP:40, ADE:35, DSA:45}},
+      {name:'Karan', rollNo:'8', marks:{CNN:72, CPP:68, ADE:67, DSA:75}},
+      {name:'Pooja', rollNo:'9', marks:{CNN:85, CPP:88, ADE:90, DSA:82}},
+      {name:'Amit', rollNo:'10', marks:{CNN:35, CPP:36, ADE:40, DSA:45}},
+      {name:'praveen', rollNo:'11', marks:{CNN:90, CPP:95, ADE:92, DSA:88}},
+      {name:'Rohan', rollNo:'12', marks:{CNN:65, CPP:70, ADE:75, DSA:67}},
+      {name:'Suresh', rollNo:'13', marks:{CNN:40, CPP:45, ADE:55, DSA:60}},
+      {name:'Kavita', rollNo:'14', marks:{CNN:70, CPP:85, ADE:67, DSA:72}},
+      {name:'Manish', rollNo:'15', marks:{CNN:88, CPP:90, ADE:85, DSA:92}},
+      {name:'Sunil', rollNo:'16', marks:{CNN:40, CPP:35, ADE:38, DSA:41}},
+      {name:'Jyoti', rollNo:'17', marks:{CNN:95, CPP:92, ADE:96, DSA:90}},
+      {name:'tarun', rollNo:'18', marks:{CNN:40, CPP:55, ADE:60, DSA:55}},
+      {name:'Geeta', rollNo:'19', marks:{CNN:82, CPP:70, ADE:85, DSA:67}},
+      {name:'Manoj', rollNo:'20', marks:{CNN:70, CPP:75, ADE:68, DSA:72}}
+    ];
+
+    function renderTable() {
+      const tbody = document.querySelector("#studentTable tbody");
+      tbody.innerHTML = "";
+      students.forEach((student, index) => {
+        let total = student.marks.CNN + student.marks.CPP + student.marks.ADE + student.marks.DSA;
+        let percentage = (total / 400 * 100).toFixed(2);
+
+        let row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${student.name}</td>
+          <td>${student.rollNo}</td>
+          <td>${student.marks.CNN}</td>
+          <td>${student.marks.CPP}</td>
+          <td>${student.marks.ADE}</td>
+          <td>${student.marks.DSA}</td>
+          <td>${total}</td>
+          <td>${percentage}%</td>
+          <td>
+            <button onclick="editStudent(${index})">Edit</button>
+            <button onclick="deleteStudent(${index})">Delete</button>
+          </td>
+        `;
+
+        if (percentage >= 75) row.className = "green";
+        else if (percentage >= 55) row.className = "yellow";
+        else if (percentage >= 40) row.className = "orange";
+        else row.className = "red";
+
+        tbody.appendChild(row);
+      });
+    }
+
+    function editStudent(index) {
+      let student = students[index];
+      let newName = prompt("Edit Name:", student.name);
+      let newCNN = prompt("Edit CNN Marks:", student.marks.CNN);
+      let newCPP = prompt("Edit CPP Marks:", student.marks.CPP);
+      let newADE = prompt("Edit ADE Marks:", student.marks.ADE);
+      let newDSA = prompt("Edit DSA Marks:", student.marks.DSA);
+
+      if (newCNN !== null) student.marks.CNN = parseInt(newCNN);
+      if (newCPP !== null) student.marks.CPP = parseInt(newCPP);
+      if (newADE !== null) student.marks.ADE = parseInt(newADE);
+      if (newDSA !== null) student.marks.DSA = parseInt(newDSA);
+      if (newName) student.name = newName;
+      renderTable();
+    }
+
+    function deleteStudent(index) {
+      students.splice(index, 1);
+      renderTable();
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>
